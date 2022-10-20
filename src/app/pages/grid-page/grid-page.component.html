@@ -1,14 +1,13 @@
 <div class="grid-container">
-  <div class="header" [style.background-color]="selectedColor">
-    <p>
-      <app-header></app-header>
-    </p>
-  </div>
+
+  <app-header style="display:grid !important ;"></app-header>
+
+
   <div class="middle">
     <div class="form-container">
       <div class="menu-item-list">
-        <button class="menu-item" *ngFor="let item of menuItems" (click)="selectColor(item)"
-          [style.background-color]="item">
+        <button class="menu-item" *ngFor="let item of menuItems" (click)="selectColor(item.value)"
+          [style.background-color]="item.value">
           MENU ITEM
         </button>
       </div>
@@ -21,22 +20,19 @@
         <div class="btn-container">
           <button [style.background-color]="selectedColor" class="form-btn" [disabled]="isFormEmpty"
             [class.disabled]="isFormEmpty" (click)="reset()">RESET
-            BUTTON
           </button>
           <button [style.background-color]="selectedColor" class="form-btn" [disabled]="form.invalid"
             [class.disabled]="form.invalid" (click)="submit()">SUBMIT
-            BUTTON
           </button>
         </div>
       </form>
     </div>
     <div class="sidebar" id="sidebar">
-      <app-side-bar></app-side-bar>
+      SIDEBAR
     </div>
   </div>
-  <div class="footer" [style.background-color]="selectedColor">
-    <p>
-      <app-footer></app-footer>
-    </p>
-  </div>
+
+  <app-footer style="display: grid !important;"></app-footer>
+
+
 </div>

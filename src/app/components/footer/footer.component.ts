@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ColorService } from 'src/app/services/color.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  public selectedColor?: string;
+
+  constructor(    private colorService: ColorService,
+    ) {
+      colorService.colorState.subscribe((res) => {
+        this.selectedColor = res;
+      });
+    }
 
   ngOnInit(): void {
   }

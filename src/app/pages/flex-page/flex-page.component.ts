@@ -15,32 +15,33 @@ export class FlexPageComponent implements OnInit {
   // This source was used for color names:
   // https://chir.ag/projects/name-that-color/#FFFFF7
   public menuItems = [
-    new ColorModel({ text: 'Alpine', value: '#AF8F2C' }),
-    new ColorModel({ text: 'Affair', value: '#714693' }),
-    new ColorModel({ text: 'Amazon', value: '#3B7A57' }),
-    new ColorModel({ text: 'Amaranth', value: '#E52B50' }),
+    new ColorModel({ text: 'Pizazz', value: '#FB8C00' }),
+    new ColorModel({ text: 'Yellow Orange', value: '#FFBD45' }),
+    new ColorModel({ text: 'Rose of Sharon', value: '#C25E00' }),
+    new ColorModel({ text: 'Roman Coffee', value: '#795548' }),
   ];
 
-
-  //public menuItems = ['blue', 'red', 'green', 'whitesmoke', 'black', 'purple', 'yellow', 'brown', 'cyan', 'gray', 'orange'];
   form = new FormGroup({
     textFormField1: new FormControl('', [Validators.required]),
     textFormField2: new FormControl('', [Validators.required]),
     textFormField3: new FormControl('', [Validators.required]),
     textFormField4: new FormControl('', [Validators.required]),
   });
+
   public selectedColor?: string;
 
-  constructor(
-    private router: Router,
+
+
+
+  constructor(     private router: Router,
     private colorService: ColorService,
-    private titleService: Title
-  ) {
-    // titleService.setTitle('One');
-    colorService.colorState.subscribe((res) => {
-      this.selectedColor = res;
-    });
-  }
+    ) {
+      colorService.colorState.subscribe((res) => {
+        this.selectedColor = res;
+      });
+    }
+
+
 
   ngOnInit(): void {}
 
@@ -59,4 +60,5 @@ export class FlexPageComponent implements OnInit {
   selectColor(color: string): void {
     this.colorService.changeColorState(color);
   }
+
 }

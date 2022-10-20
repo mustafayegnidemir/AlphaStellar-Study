@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ColorService } from 'src/app/services/color.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+
+  public selectedColor?: string;
+
+  constructor(
+    private colorService: ColorService,
+  ) {
+      colorService.colorState.subscribe((res) => {
+        this.selectedColor = res;
+      });
+
+    }
 
   ngOnInit(): void {
   }
+
+  selectColor(color: string): void {
+    this.colorService.changeColorState(color);
+  }
+
 
 }

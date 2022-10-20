@@ -12,7 +12,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
-import { SideBarComponent } from './components/side-bar/side-bar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+// import { SideBarComponent } from './components/side-bar/side-bar.component';
 
 
 
@@ -24,7 +25,8 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
     GridPageComponent,
     FooterComponent,
     HeaderComponent,
-    SideBarComponent
+    NavbarComponent,
+    // SideBarComponent
   ],
   imports: [
     BrowserModule,

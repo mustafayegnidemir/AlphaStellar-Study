@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {ColorService} from '../../services/color.service';
 import {Title} from '@angular/platform-browser';
+import { ColorModel } from 'src/app/models/color-model';
 
 @Component({
   selector: 'app-grid-page',
@@ -10,7 +11,15 @@ import {Title} from '@angular/platform-browser';
   styleUrls: ['./grid-page.component.css']
 })
 export class GridPageComponent implements OnInit {
-  public menuItems = ['blue', 'red', 'green', 'whitesmoke', 'black', 'purple', 'yellow', 'brown', 'cyan', 'gray', 'orange'];
+  // This source was used for color names:
+  // https://chir.ag/projects/name-that-color/#FFFFF7
+  public menuItems = [
+    new ColorModel({ text: 'Alpine', value: '#AF8F2C' }),
+    new ColorModel({ text: 'Affair', value: '#714693' }),
+    new ColorModel({ text: 'Amazon', value: '#3B7A57' }),
+    new ColorModel({ text: 'Amaranth', value: '#E52B50' }),
+  ];
+
   form = new FormGroup({
     textFormField1: new FormControl('', [Validators.required]),
     textFormField2: new FormControl('', [Validators.required]),
@@ -34,7 +43,7 @@ export class GridPageComponent implements OnInit {
   }
 
   submit(): void {
-    this.router.navigate(['page-one']).then();
+    this.router.navigate(['flex-page']).then();
   }
 
   reset(): void {
