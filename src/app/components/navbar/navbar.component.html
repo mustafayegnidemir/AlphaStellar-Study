@@ -1,11 +1,18 @@
     <!-- navbar -->
     <nav id="main-nav" class="nav">
       <div class="container">
-          <img src="img/alphastellar.jpg" alt="" class="logo">
+        <a routerLink="../../pages/flex-page/flex-page.component.html"><img src="../../../assets/img/alphastellar.jpg" alt="" class="logo"></a>
+
           <ul>
-              <li><a class="active" href="../../pages/flex-page/flex-page.component.html">Flex-Page</a></li>
-              <li><a href="../../pages/grid-page/grid-page.component.html">Grid-Page</a></li>
+            <li >
+              <a [routerLink]="'/flex-page'" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Flex-Page</a>
+            </li>
+            <li >
+              <a [routerLink]="'/grid-page'" routerLinkActive="active" >Grid-Page</a>
+            </li>
+
           </ul>
+
           <div class="social-icons">
               <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
               <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
@@ -14,3 +21,5 @@
           </div>
       </div>
   </nav>
+  <!-- The routed views render in the <router-outlet>-->
+<router-outlet></router-outlet>
